@@ -1,10 +1,9 @@
+import Link from "next/link"
 export default function HomePage(){
   return (
     <>
       <main className="main">
-        <aside>
-          a
-        </aside>
+      <h1>HOME</h1>
       </main>
     </>
   )

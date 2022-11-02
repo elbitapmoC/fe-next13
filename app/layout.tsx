@@ -1,5 +1,6 @@
 import Nav from './nav';
 import Footer from './footer'
+import './globals.scss'
 export default function RootLayout({
   children,
 }: {
