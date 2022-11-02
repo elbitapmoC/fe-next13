@@ -1,9 +1,7 @@
 const Footer = () => {
   return (
-    <footer>
-      <span>
-        <p>&copy; elbitapmoC | 2022</p>
-      </span>
+    <footer className="flex justify-center mb-24 pt-16 text-center">
+      <p>&copy; elbitapmoC | 2022</p>
     </footer>
   );
 };

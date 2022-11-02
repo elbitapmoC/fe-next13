@@ -4,7 +4,6 @@ import Link from "next/link";
 const Nav = () => {
   return (
     <nav className="flex justify-center mb-24 pt-16">
-      <Link href="/pharmacists">Pharmacy</Link>
       <Link href="/">
         <Image
           src="/icons/ph-logo.svg"
@@ -14,7 +13,6 @@ const Nav = () => {
           priority
         />
       </Link>
-      <Link href="/providers">Provider</Link>
     </nav>
   );
 };
