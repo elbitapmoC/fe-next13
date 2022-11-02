@@ -1,11 +1,12 @@
+
 export default function HomePage() {
   return (
     <>
-      <main className="main">
-        <h1 className="text-3xl p-8 font-bold underline">
-          Hello world!
-        </h1>
-      </main>
+      <div className="p-4">
+        <div className="main">
+          <h1>HOME</h1>
+        </div>
+      </div>
     </>
   )
 }

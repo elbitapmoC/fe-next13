@@ -3,7 +3,11 @@ import React from 'react'
 const PharmacistsPage = async () => {
   return (
     <>
-      <h1>Pharmacy Page</h1>
+      <div className="p-4">
+        <div className="main">
+          <h1>PHARMACY</h1>
+        </div>
+      </div>
     </>
   )
 }
