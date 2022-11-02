@@ -1,9 +1,10 @@
-import Link from "next/link"
-export default function HomePage(){
+export default function HomePage() {
   return (
     <>
       <main className="main">
-      <h1>HOME</h1>
+        <h1 className="text-3xl p-8 font-bold underline">
+          Hello world!
+        </h1>
       </main>
     </>
   )
