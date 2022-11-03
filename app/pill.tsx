@@ -9,7 +9,6 @@ const Pill = ({ text, imgAlt, imgSource }: { text: string, imgAlt: string, imgSo
         className="pill mb-8"
         width="134"
         height="278"
-        layout="responsive"
         priority
       ></Image>
       <span className="font-light text-xl">{text}</span>

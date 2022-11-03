@@ -15,7 +15,7 @@ export default async function ProvidersPage() {
     <div className="main">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-400">
-          <thead className="text-xs uppercase bg-gray-700">
+          <thead className="text-xs uppercase bg-gray-900">
             <tr>
               <th scope="col" className="py-3 px-6">
                 Patient
