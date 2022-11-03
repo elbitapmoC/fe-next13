@@ -1,4 +1,4 @@
-import Pill from './(pill)/page'
+import Pill from './pill'
 import Link from 'next/link'
 export default function HomePage() {
   return (

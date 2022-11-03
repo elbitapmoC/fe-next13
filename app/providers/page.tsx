@@ -14,8 +14,8 @@ export default async function ProvidersPage() {
   return (
     <div className="main">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left dark:text-gray-400">
-          <thead className="text-xs uppercase bg-gray-50 dark:bg-gray-700">
+        <table className="w-full text-sm text-left text-gray-400">
+          <thead className="text-xs uppercase bg-gray-700">
             <tr>
               <th scope="col" className="py-3 px-6">
                 Patient
@@ -31,7 +31,7 @@ export default async function ProvidersPage() {
           <tbody>
             {patients?.map(({ id, firstName, lastName, progress }) => {
               return (
-                <tr key={id} className="border-b dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-gray-800">
+                <tr key={id} className="border-b bg-gray-900 border-gray-700 hover:bg-gray-800">
                   <th scope="row" className="py-6 px-6 font-medium whitespace-nowrap text-white">
                     {firstName} {lastName}
                   </th>
@@ -39,7 +39,7 @@ export default async function ProvidersPage() {
                     {progress}
                   </td>
                   <td className="py-6 px-6 text-right">
-                    <Link href={`/providers/${id}`} className="font-medium dark:text-blue-500 hover:underline">see profile &#9432;</Link>
+                    <Link href={`/providers/${id}`} className="font-medium text-blue-500 hover:underline">see profile &#9432;</Link>
                   </td>
                 </tr>
               )
