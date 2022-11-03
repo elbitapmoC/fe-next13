@@ -13,10 +13,9 @@ async function getPatient(patientId: string) {
 
 export default async function PatientPage({ params }: any) {
   const patient = await getPatient(params.id);
-  const { dob,
+  const {
     firstName,
     frequency,
-    id,
     img,
     lastName,
     prescription,
@@ -29,7 +28,7 @@ export default async function PatientPage({ params }: any) {
     <div className="main">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
         <div className="hover:bg-gray-900 w-full max-w-sm bg-white rounded-lg border shadow-md bg-gray-800 border-gray-700">
-          <div className="flex flex-col items-center p-10">
+          <div className="flex flex-col items-center pt-10 pb-10 pl-16 pr-16">
             <img
               className="mb-3 w-24 h-24 rounded-full shadow-lg"
               src={img}
@@ -38,8 +37,13 @@ export default async function PatientPage({ params }: any) {
             <h5 className="mb-1 text-xl font-medium text-white">
               {firstName} {lastName}
             </h5>
-            <span className="text-sm text-gray-400">
-              Prescripton Details: {progress}
+            {progress}
+            <span className="text-sm text-gray-400 mt-4">
+              <ul>
+                <li><span>{strength} {unit} of {prescription}</span></li>
+                <li><span>{frequency}</span></li>
+                <li><span>{route}</span></li>
+              </ul>
             </span>
           </div>
         </div>
