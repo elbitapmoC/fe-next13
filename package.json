@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"tailwindcss --input input.css --output output.css --watch\"",
+    "dev": "next dev",
     "build": "tailwindcss input.css --output output.css && next build",
     "start": "next start",
     "lint": "next lint"
