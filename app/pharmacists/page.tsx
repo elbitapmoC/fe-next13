@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Patient } from "../../typings";
+import PrescriptionStatus from '../prescriptionStatus';
 
 async function getPatients() {
   const res = await fetch('http://127.0.0.1:8090/api/collections/cvs/records?page=1&perPage=10',
@@ -8,9 +10,9 @@ async function getPatients() {
   return data?.items as any[];
 }
 
-export default async function PharmacistsPage() {
-  const patients = await getPatients();
-
+const Pharmacists = async () => {
+  let patients: Patient[] = await getPatients();
+  console.log(patients);
   return (
     <div className="main">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -36,13 +38,7 @@ export default async function PharmacistsPage() {
                     {prescription}
                   </th>
                   <td className="py-6 px-6 text-center">
-                    {progress.toLowerCase() !== 'fulfilled' ?
-                      <select className="bg-transparent">
-                        <option value="pending">Pending</option>
-                        <option value="wip">WIP (work in progress)</option>
-                        <option value="fulfilled">Fulfilled</option>
-                      </select> :
-                      <p>{progress}</p>}
+                    <PrescriptionStatus progress={progress} />
                   </td>
                   <td className="py-6 px-6 text-right">
                     <Link href={`/providers/${id}`} className="font-medium text-blue-500 hover:underline">see profile &#9432;</Link>
@@ -57,3 +53,5 @@ export default async function PharmacistsPage() {
     </div>
   )
 }
+
+export default Pharmacists

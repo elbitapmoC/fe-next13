@@ -10,7 +10,7 @@ async function getPatients() {
 
 export default async function ProvidersPage() {
   const patients = await getPatients();
-
+  console.log(patients);
   return (
     <div className="main">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">

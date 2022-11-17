@@ -1,17 +1,25 @@
-import Link from "next/link";
+import Image from "next/image";
+import { Patient } from "../../../typings";
+import { notFound } from 'next/navigation';
+import Back from "../../back";
+export const dynamicParams = true;
 
 async function getPatient(patientId: string) {
   const res = await fetch(
     `http://127.0.0.1:8090/api/collections/cvs/records/${patientId}`,
-    {
-      next: { revalidate: 10 },
-    }
+    { next: { revalidate: 10 } }
   );
   const data = await res.json();
   return data;
 }
 
-export default async function PatientPage({ params }: any) {
+type PageProps = {
+  params: {
+    id: string
+  }
+}
+
+export default async function PatientPage({ params }: PageProps) {
   const patient = await getPatient(params.id);
   const {
     firstName,
@@ -22,17 +30,21 @@ export default async function PatientPage({ params }: any) {
     progress,
     route,
     strength,
-    unit } = patient;
+    unit }: Patient = patient;
+
+  if (!patient || patient.length < 1) return notFound();
 
   return (
     <div className="main">
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
         <div className="hover:bg-gray-900 w-full max-w-sm bg-white rounded-lg border shadow-md bg-gray-800 border-gray-700">
           <div className="flex flex-col items-center pt-10 pb-10 pl-16 pr-16">
-            <img
-              className="mb-3 w-24 h-24 rounded-full shadow-lg"
+            <Image
+              className="mb-3 rounded-full shadow-lg"
               src={img}
               alt={`Picture of ${firstName} ${lastName}`}
+              width={96}
+              height={96}
             />
             <h5 className="mb-1 text-xl font-medium text-white">
               {firstName} {lastName}
@@ -48,9 +60,21 @@ export default async function PatientPage({ params }: any) {
           </div>
         </div>
       </div>
-      <Link href="/providers" className="mt-8"><button type="button" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium focus:outline-none rounded-lg border focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Go back</button>
-      </Link>
+      <Back />
     </div>
   );
 }
 
+export async function generateStaticParams() {
+  const res = await fetch(
+    `http://127.0.0.1:8090/api/collections/cvs/records/`,
+    {
+      next: { revalidate: 10 },
+    }
+  );
+  const data = await res.json();
+  const items = data.items as any[];
+  return items.map((item) => ({
+    id: item.id.toString(),
+  }))
+}

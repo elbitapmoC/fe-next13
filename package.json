@@ -3,18 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "tailwindcss input.css --output output.css && next build",
+    "dev": "next",
+    "build": "tailwindcss && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "13.0.1",
+    "eslint-config-next": "^13.0.3",
+    "next": "^13.0.3",
     "pocketbase": "^0.7.4",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
