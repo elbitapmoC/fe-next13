@@ -1,7 +1,5 @@
-const title = () => {
-  return (
-    <div>title</div>
-  )
-}
+const Title = ({ text }: any) => {
+  return <p className="text-4xl mb-16 font-md">{text}</p>;
+};
 
-export default title
+export default Title;
