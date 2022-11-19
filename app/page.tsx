@@ -1,8 +1,13 @@
-import Pill from './pill'
-import Link from 'next/link'
+import Pill from './pill';
+import Link from 'next/link';
+import Title from './title';
+import Subtitle from './subtitle';
 export default function HomePage() {
   return (
     <div className="main">
+      <Subtitle text="next-gen prescriptions" />
+      <Title text="Photon Health Dashboard" />
+
       <div className="grid grid-cols-2 gap-12">
         <Link href="providers">
           <Pill
